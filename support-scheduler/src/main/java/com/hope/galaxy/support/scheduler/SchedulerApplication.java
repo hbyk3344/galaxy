@@ -1,5 +1,4 @@
-package com.hope.galaxy.support.sso;
-
+package com.hope.galaxy.support.scheduler;
 import org.apache.catalina.Context;
 import org.apache.catalina.connector.Connector;
 import org.apache.tomcat.util.descriptor.web.SecurityCollection;
@@ -10,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication(scanBasePackages = {"com.hope.galaxy.support.sso"})
-public class SsoApplication {
+@SpringBootApplication(scanBasePackages = {"com.hope.galaxy.support.scheduler"})
+public class SchedulerApplication {
     public static void main(String[] args) {
-        SpringApplication.run(SsoApplication.class);
+        SpringApplication.run(SchedulerApplication.class);
     }
     @Value("${server.port}")
     private int httpsPort ;
@@ -22,7 +21,7 @@ public class SsoApplication {
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         // 捕获http请求，并将其重定向到443端口
         connector.setScheme("http");
-        connector.setPort(8080);
+        connector.setPort(8081);
         connector.setSecure(false);
         connector.setRedirectPort(httpsPort);
         return connector;

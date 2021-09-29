@@ -1,7 +1,7 @@
 server:
-  port: 443
+  port: 444
   servlet:
-    context-path: /galaxy-sso
+    context-path: /galaxy-scheduler
   ssl:
     key-store: classpath:galaxy.keystore
     key-store-password: galaxy
@@ -22,7 +22,4 @@ spring:
   quartz:
     job-store-type: jdbc
     auto-startup: true
-logging:
-  level:
-    com: info
 
